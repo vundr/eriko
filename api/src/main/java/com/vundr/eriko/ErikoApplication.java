@@ -2,6 +2,11 @@ package com.vundr.eriko;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @SpringBootApplication
 public class ErikoApplication {
@@ -10,4 +15,14 @@ public class ErikoApplication {
         SpringApplication.run(ErikoApplication.class, args);
     }
 
+    @RestController
+    static class TestController {
+
+        @GetMapping
+        public ResponseEntity test() {
+            return ResponseEntity.ok().body(
+                    Map.of("123", "213")
+            );
+        }
+    }
 }
