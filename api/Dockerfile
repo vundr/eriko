@@ -7,4 +7,5 @@ WORKDIR /app
 
 COPY ./target/${JAR_FILE}  ./
 
-ENTRYPOINT "java $JAVA_DEBUG -jar $JAR_FILE"]
+ENTRYPOINT java $JAVA_DEBUG -jar $JAR_FILE
+

@@ -1,11 +1,18 @@
 version: "3.8"
 
 services:
+  gateway:
+    build:
+      context: gateway/docker/development/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+
   frontend:
     build:
       context: frontend/docker/development/nginx
-    ports:
-      - "80:80"
     volumes:
       - ./frontend:/app
     depends_on:

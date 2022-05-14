@@ -14,15 +14,4 @@ public class ErikoApplication {
     public static void main(String[] args) {
         SpringApplication.run(ErikoApplication.class, args);
     }
-
-    @RestController
-    static class TestController {
-
-        @GetMapping
-        public ResponseEntity test() {
-            return ResponseEntity.ok().body(
-                    Map.of("123", "213")
-            );
-        }
-    }
 }
