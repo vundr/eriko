@@ -4,6 +4,7 @@ services:
   gateway:
     build:
       context: gateway/docker/development/nginx
+    restart: unless-stopped
     ports:
       - "80:80"
     depends_on:
@@ -13,6 +14,7 @@ services:
   frontend:
     build:
       context: frontend/docker/development/nginx
+    restart: unless-stopped
     volumes:
       - ./frontend:/app
     depends_on:
@@ -22,3 +24,14 @@ services:
     build:
       context: api
     platform: linux/amd64
+    restart: unless-stopped
+
+  keycloak:
+    environment:
+      KEYCLOAK_USER: ${KEYCLOAK_USER}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+    image: wizzn/keycloak:14
+    ports:
+      - "28080:8080"
+    platform: linux/amd64
+    restart: unless-stopped
