@@ -25,6 +25,8 @@ services:
       context: api
     platform: linux/amd64
     restart: unless-stopped
+    depends_on:
+      - keycloak
 
   keycloak:
     environment:
