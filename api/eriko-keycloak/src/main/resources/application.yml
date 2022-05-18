@@ -14,10 +14,16 @@ server:
 
 keycloak:
   custom:
+
     adminUser:
-      username: admin
-      password: admin
+      username: ${KEYCLOAK_USER}
+      password: ${KEYCLOAK_PASSWORD}
       create-admin-user-enabled: true
+
+    migration:
+      importProvider: singleFile
+      importLocation: config/realms/keycloak-realm-config.json
+      strategy: IGNORE_EXISTING
 
 logging:
   level:

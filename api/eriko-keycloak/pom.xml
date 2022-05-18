@@ -312,4 +312,5 @@
         </plugins>
         <finalName>eriko-keycloak</finalName>
     </build>
+
 </project>
