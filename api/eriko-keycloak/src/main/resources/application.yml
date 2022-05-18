@@ -12,6 +12,12 @@ server:
   servlet:
     context-path: "/"
 
+keycloak:
+  custom:
+    adminUser:
+      username: admin
+      password: admin
+      create-admin-user-enabled: true
 
 logging:
   level:

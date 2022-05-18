@@ -22,8 +22,7 @@ services:
 
   backend:
     build:
-      context: api
-    platform: linux/amd64
+      context: api/eriko-web
     restart: unless-stopped
     depends_on:
       - keycloak
@@ -32,8 +31,9 @@ services:
     environment:
       KEYCLOAK_USER: ${KEYCLOAK_USER}
       KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
-    image: wizzn/keycloak:14
+    build:
+      context: api/eriko-keycloak
     ports:
       - "28080:8080"
-    platform: linux/amd64
+    platform: linux/arm64
     restart: unless-stopped
