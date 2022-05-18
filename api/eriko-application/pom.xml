@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>eriko-web</artifactId>
+    <artifactId>eriko-application</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -26,12 +26,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <artifactId>eriko-security-starter</artifactId>
-            <groupId>com.vundr.eriko</groupId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
