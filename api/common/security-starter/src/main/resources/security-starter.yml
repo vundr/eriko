@@ -1,0 +1,7 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_URL}/auth/realms/eriko-web
+          jwk-set-uri: ${KEYCLOAK_URL}/auth/realms/eriko-web/protocol/openid-connect/certs

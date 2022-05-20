@@ -14,6 +14,8 @@
     <modules>
         <module>eriko-application</module>
         <module>eriko-keycloak</module>
+        <module>common/security-starter</module>
+        <module>common/common-starter</module>
     </modules>
 
     <groupId>com.vundr.eriko</groupId>
@@ -25,6 +27,17 @@
 
     <properties>
         <java.version>17</java.version>
+        <security.starter>0.0.1-SNAPSHOT</security.starter>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vundr.eriko</groupId>
+                <artifactId>security-starter</artifactId>
+                <version>${security.starter}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
