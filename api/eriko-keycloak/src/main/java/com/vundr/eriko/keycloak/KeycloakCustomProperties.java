@@ -34,7 +34,7 @@ public class KeycloakCustomProperties {
     @Setter
     public static class Migration {
 
-        Resource importLocation = new FileSystemResource("keycloak-realm-config.json");
+        String importLocation = "keycloak-realm-config.json";
 
         String importProvider = "singleFile";
     }

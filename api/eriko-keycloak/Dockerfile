@@ -5,6 +5,7 @@ ENV JAVA_DEBUG="-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspe
 
 WORKDIR /app
 
+COPY ./config* ./config/
 COPY ./target/${JAR_FILE}  ./
 
 ENTRYPOINT java $JAVA_DEBUG -jar $JAR_FILE

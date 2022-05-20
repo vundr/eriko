@@ -10,6 +10,8 @@ import org.keycloak.models.KeycloakTransactionManager;
 import org.keycloak.services.ServicesLogger;
 import org.keycloak.services.managers.ApplianceBootstrap;
 import org.keycloak.services.resources.KeycloakApplication;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -89,22 +91,22 @@ public class EmbeddedKeycloakApplication extends KeycloakApplication {
     protected void tryImportRealm() {
 
         KeycloakCustomProperties.Migration imex = customProperties.getMigration();
-        Resource importLocation = imex.getImportLocation();
+        Resource resource = new FileSystemResource(imex.getImportLocation());
 
-        if (!importLocation.exists()) {
-            log.info("Could not find keycloak import file {}", importLocation);
+        if (!resource.exists()) {
+            log.info("Could not find keycloak import file {}", resource);
             return;
         }
 
         File file;
         try {
-            file = importLocation.getFile();
+            file = resource.getFile();
         } catch (IOException e) {
-            log.error("Could not read keycloak import file {}", importLocation, e);
+            log.error("Could not read keycloak import file {}", resource, e);
             return;
         }
 
-        log.info("Starting Keycloak realm configuration import from location: {}", importLocation);
+        log.info("Starting Keycloak realm configuration import from location: {}", resource);
 
         KeycloakSession session = getSessionFactory().create();
 

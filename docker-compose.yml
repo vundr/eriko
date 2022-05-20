@@ -22,7 +22,7 @@ services:
 
   backend:
     build:
-      context: api/eriko-web
+      context: api/eriko-application
     restart: unless-stopped
     depends_on:
       - keycloak
@@ -31,9 +31,11 @@ services:
     environment:
       KEYCLOAK_USER: ${KEYCLOAK_USER}
       KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+      KEYCLOAK_REDIRECT_URI: ${KEYCLOAK_REDIRECT_URI}
     build:
       context: api/eriko-keycloak
     ports:
+      - "5005:5005"
       - "28080:8080"
     platform: linux/arm64
     restart: unless-stopped
